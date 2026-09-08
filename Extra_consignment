@@ -1,0 +1,129 @@
+# Threat score from monitoring system
+
+# Your program should classify the threat based on score ranges:
+# CRITICAL (90+): Immediate action required
+# HIGH (70-89): Investigate within 1 hour
+# MEDIUM (40-69): Review within 24 hours
+# LOW (20-39): Monitor
+# INFORMATIONAL (below 20): No action needed
+#
+# Print the classification level and its action message
+# Include the actual score value in your output
+# Example: "Score 75: HIGH - Investigate within 1 hour"
+def Thread(thread_score):
+    if thread_score >= 90:
+        print(f"CRITICAL {thread_score}: Immediate action required")
+    elif thread_score >= 70:
+        print(f"HIGH {thread_score}: Investigate within 1 hour")
+    elif thread_score >= 40:
+        print(f"MEDIUM {thread_score}: Review within 24 hours")
+    elif thread_score >= 20:
+        print(f"LOW {thread_score}: Monitor")
+    else:
+        print(f"INFORMATIONAL {thread_score}: No action needed")
+
+print("Exercise 1: Thread Level Classifier")
+
+Thread(92)
+Thread(12)
+Thread(54)
+Thread(71)
+
+print("\n------------\n")
+
+
+"""----------------------------"""
+
+
+# Port number to analyze
+# Your program should use match-case to classify:
+# 22 → "SSH - Secure Shell"
+# 80 → "HTTP - Web Traffic (Unencrypted)"
+# 443 → "HTTPS - Secure Web Traffic"
+# 3306 → "MySQL - Database"
+# 3389 → "RDP - Remote Desktop"
+# 53 → "DNS - Domain Name System"
+# _ (default) → "Unknown Port"
+#
+# Print the port number and its classification
+
+def port(port_number):
+    match port_number:
+        case 22:
+            return("SSH - Secure Shell")
+        case 80:
+            return("HTTP - Web Traffic (Unencrypted)")
+        case 443:
+            return("HTTPS - Secure Web Traffic")
+        case 3306:
+            return("MySQL - Database")
+        case 3389:
+            return("RDP - Remote Desktop")
+        case 53:
+            return("DNS - Domain Name System")
+        case _:
+            return("Unknown Port")
+
+print("Exercise 2: Port Classifier")
+
+print(port(443))
+print(port(3306))
+print(port(346))
+print(port(53))
+
+print("\n------------\n")
+
+
+"""----------------------------"""
+
+
+# Correct password stored in system
+correct_password = "Cyber2026!"
+attempts = 0
+max_attempts = 3
+# Your program should:
+# 1. Use a while loop to allow up to 3 attempts
+# 2. Ask user for password input (use input() function)
+# 3. Check if password matches correct_password
+# 4. If correct: print "Access granted" and exit loop
+# 5. If wrong: increment attempts, show remaining attempts
+# 6. If max attempts reached: print "Account locked"
+
+print("Exercise 3: Password Retry System")
+
+# while attempts < max_attempts:
+#     login = input("Password: ")
+#     if login == correct_password:
+#         print("Login granted")
+#         break
+#     else:
+#         attempts += 1
+
+
+"""----------------------------"""
+
+
+# Network to scan: 192.168.1.1 to 192.168.1.20
+# Your program should:
+# 1. Use a for loop with range(1, 21)
+# 2. Print "Scanning 192.168.1.X..." for each IP
+# 3. For IPs ending in 5, 10, 15: print " → Device found!"
+# 4. For IP ending in 13: print " → SUSPICIOUS DEVICE!" and break
+# 5. Count total IPs scanned before breaking
+def networkscan(network_to_scan, range_start, range_end, device_found, suspicious_device):
+    network_range = range(range_start, range_end)
+    # Device_found = [5, 10, 15]
+    for scan in network_range:
+        print(f"Scanning {network_to_scan}{scan}...")
+        if scan in device_found:
+            print(f"Device found!")
+        elif scan in suspicious_device:
+            print(f"SUSPICIOUS DEVICE!\nINVESTIGATE NOW!")
+            break
+    print(f"{scan} Scans were made")
+
+print("Exercise 4: IP Scanner")
+# networkscan("192.168.1.", 1, 21, [5, 10, 15], [13])
+# networkscan("192.168.1.", 1, 21, [3, 7, 14, 17], [])
+
+"""----------------------------"""
