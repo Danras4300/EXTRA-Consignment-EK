@@ -1,0 +1,2 @@
+ALT-2 MALWARE from 192.168.1.105: Ransomware detected
+ALT-4 INTRUSION from 203.0.113.5: Unauthorized access attempt

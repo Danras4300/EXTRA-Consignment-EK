@@ -1,0 +1,3 @@
+MALWARE: Trojan detected on endpoint
+ACCESS: Unauthorized login attempt
+NETWORK: Port scan detected
