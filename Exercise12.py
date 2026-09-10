@@ -64,11 +64,11 @@ print(severity)
 # Since python_data["threats"] is a list we can append the new threat (dictionary)
 # Then convert the python data back to json and overwrite the file with the new data
 # The overwriting is commented out to not repeat the same
-# python_data["threats"].append(new_threat)
-# json_data = json.dumps(python_data, indent=2)
-# with open(full_path, 'w') as file:
-#     file.write(json_data)
-#     file.close()
+python_data["threats"].append(new_threat)
+json_data = json.dumps(python_data, indent=2)
+with open(full_path, 'w') as file:
+    file.write(json_data)
+    file.close()
 
 with open(full_path, 'r') as file:
     print(file.read())

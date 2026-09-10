@@ -49,6 +49,7 @@ rows = [
 ["2026-03-27 08:35:00", "data_exfil", "critical", "192.168.1.105", "8.8.8.8", "blocked"]
 ]
 
+""" This is commented out to not repeat the same line in the CSV file"""
 # with open(full_path, 'w') as csvfile:
 #     csvwriter = csv.writer(csvfile)
 #     csvwriter.writerow(fields)
