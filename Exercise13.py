@@ -33,12 +33,13 @@
 
 import os
 import csv
-# import os
 
+# Path for security report file
 base_dir = "C:/Users/danie/Desktop/Programmering PBA/EXTRA-Consignment-EK"
 filename = "security_report.csv"
 full_path = os.path.join(base_dir, filename)
 
+# Information to write to the first csv file
 fields = ["Timestamp", "Event_type", "Severity", "Source_ip", "Destination_ip", "Action_taken"]
 
 rows = [
@@ -56,9 +57,11 @@ rows = [
 #     csvwriter.writerows(rows)
 #     csvfile.close()
 
+# Lists made to append lists with data from csv files in the read system below
 fields_file = []
 rows_file = []
 
+# Reads the csv file by using the csv library
 with open(full_path, 'r') as csvfile:
     csvreader = csv.reader(csvfile)
     fields_file = next(csvreader)
@@ -66,13 +69,11 @@ with open(full_path, 'r') as csvfile:
         rows_file.append(row)
     csvfile.close()
 
+# Prints each row from the csv file
 for row in rows_file:
-    if rows == []:
-        continue
-    else:
-        for col in row:
-            print(col, end=" ")
-        print("\n")
+    for col in row:
+        print(col, end=" ")
+    print("\n")
 
 # Dictionary over alle severity counts
 severity = {"low": 0, "medium": 0, "high": 0, "critical": 0,}
@@ -103,15 +104,34 @@ print("ips and severities")
 print(source_ips_blocked)
 print(severity)
 
+# This prints files that are event type malware or data exfil
 print("\nMalware and data exfil")
 for row in malware_data_exfil:
         for col in row:
             print(col, end=" ")
         print("\n")
 
-
+# Path for new csv summary file
 base_dir = "C:/Users/danie/Desktop/Programmering PBA/EXTRA-Consignment-EK"
 filename = "summary_report.csv"
 full_path = os.path.join(base_dir, filename)
 
-# Make a with statement to open the new csv file and write a dict
+# lists made for part 4, to write in a new csv file
+fields = ["severity", "count"]
+severity_for_csv = []
+
+# This takes the severity count dictionary and makes it into a list formated as: [severity, count]
+# And imbeds the list in the list severity_for_csv, so it's in a format that can be used as rows in csv
+for sev in severity:
+    temp_list = []
+    temp_list.append(sev)
+    temp_list.append(severity[sev])
+    severity_for_csv.append(temp_list)
+
+# Writes to a new csv file called summary_report
+
+# with open(full_path, 'w') as csvfile:
+#     csvwriter = csv.writer(csvfile)
+#     csvwriter.writerow(fields)
+#     csvwriter.writerows(severity_for_csv)
+#     csvfile.close()
