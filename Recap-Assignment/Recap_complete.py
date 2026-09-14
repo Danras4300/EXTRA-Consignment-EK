@@ -618,3 +618,84 @@ for role in user_roles:
 
 print(f"There were {guest_account_counter} guest accounts")
 
+
+
+print(splitter)
+"""--------------------------------------------------------"""
+
+# FizzBuzz Challenge
+# Print numbers 1 to 50 using FizzBuzz rules
+n = 50
+# Your program should:
+# 1. Loop from 1 to n using range()
+# 2. Test divisibility by 3 and 5
+# 3. Print "Fizz", "Buzz", "FizzBuzz", or the number itself, one
+# per line
+# Example: 15 -> "FizzBuzz", 9 -> "Fizz", 10 -> "Buzz", 7 -> "7.
+
+for i in range(1, n+1):
+    if i % 3 == 0 and i % 5 == 0: print("Fizzbuzz")
+
+    elif i % 3 == 0: print("Fizz")
+
+    elif i % 5 == 0: print("Buzz")
+
+    else: print(str(i))
+
+
+print(splitter)
+"""--------------------------------------------------------"""
+
+# Make functions add, substract, multiply and divide. All should
+# have two parameters num1 and num2.
+# Ask the user for their input for two numbers.
+# Ask the user to chose an operator (+,-,*,/)
+# Use conditional statements (hint: match-case) to call the right
+# function based on the operator.
+# Handle errors with try except for invalid inputs.
+# Print the result for the calculations.
+# Ask the user if they want to try again (y or n), if yes, then
+# the program should restart, if not the program should stop
+
+def add(num1, num2):
+    return(num1 + num2)
+
+def substract(num1, num2):
+    return(num1 - num2)
+
+def multiply(num1, num2):
+    return(num1 * num2)
+
+def divide(num1, num2):
+    return(num1 / num2)
+while True:
+    operator = input("Choose between +, -, *, /, exit: ")
+    match operator:
+        case "+":
+            numbers = input("numbers to add (x + y): ").split(" + ")
+            num1 = int(numbers[0])
+            num2 = int(numbers[1])
+            print(add(num1, num2))
+        case "-":
+            numbers = input("numbers to subtract (x - y): ").split(" - ")
+            num1 = int(numbers[0])
+            num2 = int(numbers[1])
+            print(substract(num1, num2))
+        case "*":
+            numbers = input("numbers to multiply (x * y): ").split(" * ")
+            num1 = int(numbers[0])
+            num2 = int(numbers[1])
+            print(multiply(num1, num2))
+        case "/":
+            numbers = input("numbers to divide (x / y): ").split(" / ")
+            num1 = int(numbers[0])
+            num2 = int(numbers[1])
+            print(divide(num1, num2))
+        case "exit":
+            break
+        case _:
+            print("Not a valid operator")
+    try_again = input("Are you done? (y / n) ")
+    if try_again == "y": break
+    elif try_again == "n": continue
+    else: print("Not a valid input, trying again")
