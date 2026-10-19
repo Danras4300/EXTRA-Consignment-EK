@@ -643,6 +643,7 @@ for i in range(1, n+1):
     else: print(str(i))
 
 
+
 print(splitter)
 """--------------------------------------------------------"""
 
@@ -699,3 +700,9 @@ while True:
     if try_again == "y": break
     elif try_again == "n": continue
     else: print("Not a valid input, trying again")
+
+
+
+
+test = "hej"
+print(list(test))
